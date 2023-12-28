@@ -22,13 +22,13 @@
   border-radius: 50%;
 }
 
-.important{
-  margin: 100vh;
-}
-
 .linkItem{
   text-decoration: none;
   color: white;
+}
+
+.banner{
+  height: 90vh;
 }
 
 .myError{
