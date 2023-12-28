@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from "react-redux";
+import "./App.css";
+import MyRoutes from "./components/MyRoutes";
+import store from "./components/store/store";
+import NavBar from "./components/NavBar";
+import { useSelector } from "react-redux";
 
 function App() {
+
+  const loggedIn = useSelector((state) => state.signup.loggedIn)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Provider store={store}>
+        {loggedIn && <NavBar/>}
+        <MyRoutes />
+      </Provider>
     </div>
   );
 }

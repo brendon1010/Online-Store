@@ -7,6 +7,54 @@
   pointer-events: none;
 }
 
+.login{
+  margin: 7vh 55vh;
+  border: 1px solid black;
+  width: 90vh;
+  padding: 20vh;
+  border-radius: 20%;
+  font-size: larger;
+  font-family: Rubik Maps;
+}
+
+.important{
+  margin: 100vh;
+}
+
+.linkItem{
+  text-decoration: none;
+  color: white;
+}
+
+.myError{
+  font-size: smaller;
+  color: red;
+}
+
+.inp{
+  width: 55vh;
+}
+
+.foot{
+  font-family: monospace;
+  font-size: smaller;
+}
+
+.icon{
+  width: 3vh;
+}
+
+.navBar{
+  background-color: #282c34;
+}
+
+.options{
+  margin-right: 190vh;
+  cursor: pointer;
+  width: 7vh;
+  
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
