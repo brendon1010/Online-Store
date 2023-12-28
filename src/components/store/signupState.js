@@ -8,7 +8,7 @@ const signupSlice = createSlice({
     firstName: "",
     lastName: "",
     users: [],
-    loggedIn: true,
+    loggedIn: false,
   },
   reducers: {
     createEmail: (state, action) => {
@@ -34,9 +34,12 @@ const signupSlice = createSlice({
     },
     logIn: (state) => {
       state.loggedIn = true
-    }
+    },
+    logOut: (state) => {
+      state.loggedIn = false
+    },
   },
 });
 
-export const {createEmail, createPassword, createSurname, createUsername, createUser, logIn} = signupSlice.actions
+export const {createEmail, createPassword, createSurname, createUsername, createUser, logIn, logOut} = signupSlice.actions
 export default signupSlice.reducer

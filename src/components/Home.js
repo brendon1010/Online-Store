@@ -3,10 +3,12 @@ import Store from "./Store";
 import About from "./About";
 
 export default function Home() {
+
   return (
     <div>
+      <a href="#home"><img className="back-to-top" src="https://cdn-icons-png.flaticon.com/512/7604/7604589.png" alt="back-to-top"/></a>
       <br/>
-    <Carousel>
+    <Carousel id="home">
       <Carousel.Item style={{backgroundColor: 'black'}}>
         <img src="https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg" alt="back" />
         <Carousel.Caption>
@@ -46,8 +48,19 @@ export default function Home() {
     </Card>
     <br/>
     <br/>
-    <Store/><br/><hr/>
+    <span id="store">
+    <Store/>
+    </span>
+    <br/><hr/>
+    <span id="about">
     <About/>
+    </span>
+    <br/><br/><hr/>
+    <footer style={{backgroundColor: 'black', textAlign: 'center', color: 'white'}}>
+      <h2>Contact Me</h2>
+      <img className="contactMe" src="https://mailmeteor.com/logos/assets/PNG/Gmail_Logo_512px.png" alt="gmail"/>
+      <img className="contactMe" src="https://i.pinimg.com/originals/84/4e/8c/844e8cd4ab26c82286238471f0e5a901.png" alt="phone"/>
+    </footer>
     </div>
   );
 }
