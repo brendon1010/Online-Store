@@ -17,6 +17,11 @@
   font-family: Rubik Maps;
 }
 
+.pPic{
+  width: 6vh;
+  border-radius: 50%;
+}
+
 .important{
   margin: 100vh;
 }
