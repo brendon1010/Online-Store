@@ -6,9 +6,8 @@ export default function Home() {
 
   return (
     <div>
-      <a href="#home"><img className="back-to-top" src="https://cdn-icons-png.flaticon.com/512/7604/7604589.png" alt="back-to-top"/></a>
       <br/>
-    <Carousel id="home">
+    <Carousel id="home" style={{marginTop: '10vh'}}>
       <Carousel.Item style={{backgroundColor: 'black'}}>
         <img src="https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg" alt="back" />
         <Carousel.Caption>

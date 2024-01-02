@@ -9,6 +9,7 @@ const signupSlice = createSlice({
     lastName: "",
     users: [],
     loggedIn: false,
+    cart: [],
   },
   reducers: {
     createEmail: (state, action) => {
@@ -38,8 +39,11 @@ const signupSlice = createSlice({
     logOut: (state) => {
       state.loggedIn = false
     },
+    addCart: (state, action) => {
+      state.cart.push(action.payload)
+    }
   },
 });
 
-export const {createEmail, createPassword, createSurname, createUsername, createUser, logIn, logOut} = signupSlice.actions
+export const {createEmail, createPassword, createSurname, createUsername, createUser, logIn, logOut, addCart} = signupSlice.actions
 export default signupSlice.reducer

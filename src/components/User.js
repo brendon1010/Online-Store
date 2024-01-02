@@ -21,6 +21,7 @@ export default function User() {
 
   return (
     <div>
+      <br/><br/><br/><br/>
       <h1>Welcome {state.firstName ? state.firstName : "Guest"}</h1>
       <Button
         onClick={handleClick}
