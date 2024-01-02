@@ -1,11 +1,14 @@
 import { Button, Card, Container, Row, Col, Modal } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addCart } from "./store/signupState";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Store() {
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
+  const state = useSelector((state) => state.signup)
+  const navigate = useNavigate()
 
   const handleClose = () => setShow(false);
 
@@ -92,6 +95,9 @@ export default function Store() {
                     </Card.Text>
                     <Button
                       onClick={() => {
+                        if(state.loggedIn === false){
+                          navigate('/')
+                        }else{
                         dispatch(
                           addCart({
                             name: item.name,
@@ -99,7 +105,7 @@ export default function Store() {
                             image: item.image,
                             description: item.description,
                           })
-                        );
+                        );}
                         setShow(true);
                       }}
                       variant="primary"

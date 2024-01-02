@@ -41,9 +41,12 @@ const signupSlice = createSlice({
     },
     addCart: (state, action) => {
       state.cart.push(action.payload)
+    },
+    removeCart: (state, action) => {
+      state.cart = state.cart.filter(item => item.name !== action.payload)
     }
   },
 });
 
-export const {createEmail, createPassword, createSurname, createUsername, createUser, logIn, logOut, addCart} = signupSlice.actions
+export const {createEmail, createPassword, createSurname, createUsername, createUser, logIn, logOut, addCart, removeCart} = signupSlice.actions
 export default signupSlice.reducer

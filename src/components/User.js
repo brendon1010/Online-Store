@@ -2,6 +2,7 @@ import { Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logOut } from "./store/signupState";
+import { useState } from "react";
 
 export default function User() {
   const state = useSelector((state) => state.signup);
@@ -9,6 +10,7 @@ export default function User() {
   const logoutButton = "danger";
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [mode, setMode] = useState("white");
 
   function handleClick() {
     if (state.loggedIn) {
@@ -19,10 +21,33 @@ export default function User() {
     }
   }
 
+  function handleDark() {
+    let myBody = document.querySelector("body");
+    if (mode === "white") {
+      setMode('black')
+      myBody.style.backgroundColor = 'black';
+      myBody.style.color = "white";
+    }else{
+      setMode('white')
+      myBody.style.backgroundColor = 'white'
+      myBody.style.color = 'black'
+    }
+  }
+
   return (
     <div>
-      <br/><br/><br/><br/>
+      <br />
+      <br />
+      <br />
+      <br />
       <h1>Welcome {state.firstName ? state.firstName : "Guest"}</h1>
+      <h4>
+        Dark Mode
+        <Button variant="secondary" onClick={handleDark}>
+          On
+        </Button>
+      </h4>
+      <br />
       <Button
         onClick={handleClick}
         variant={state.loggedIn ? logoutButton : loginButton}
