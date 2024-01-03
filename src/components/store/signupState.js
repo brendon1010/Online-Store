@@ -10,6 +10,7 @@ const signupSlice = createSlice({
     users: [],
     loggedIn: false,
     cart: [],
+    total: 0,
   },
   reducers: {
     createEmail: (state, action) => {
@@ -44,9 +45,18 @@ const signupSlice = createSlice({
     },
     removeCart: (state, action) => {
       state.cart = state.cart.filter(item => item.name !== action.payload)
+    },
+    clearCart: (state) => {
+      state.cart = []
+    },
+    updateTotal: (state, action) => {
+      state.total += action.payload
+    },
+    subtractTotal: (state, action) => {
+      state.total -= action.payload
     }
   },
 });
 
-export const {createEmail, createPassword, createSurname, createUsername, createUser, logIn, logOut, addCart, removeCart} = signupSlice.actions
+export const {createEmail, createPassword, createSurname, createUsername, createUser, logIn, logOut, addCart, removeCart, updateTotal, subtractTotal, clearCart} = signupSlice.actions
 export default signupSlice.reducer

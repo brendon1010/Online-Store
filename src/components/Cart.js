@@ -1,10 +1,11 @@
 import { Card, Button, Modal } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { removeCart } from "./store/signupState";
+import { removeCart, subtractTotal, clearCart } from "./store/signupState";
 import { useState } from "react";
 
 export default function Cart() {
   const state = useSelector((state) => state.signup.cart);
+  const total = useSelector((state) => state.signup.total);
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
 
@@ -24,7 +25,12 @@ export default function Cart() {
               <br />
               <Card style={{ backgroundColor: "grey", color: "white" }}>
                 <Card.Header
-                  style={{ backgroundColor: "#282c34", color: "white", fontWeight: 'bold', fontSize: 'large'}}
+                  style={{
+                    backgroundColor: "#282c34",
+                    color: "white",
+                    fontWeight: "bold",
+                    fontSize: "large",
+                  }}
                 >
                   {item.name}
                 </Card.Header>
@@ -51,6 +57,7 @@ export default function Cart() {
                       variant="success"
                       onClick={() => {
                         dispatch(removeCart(item.name));
+                        dispatch(subtractTotal(item.price));
                         setShow(true);
                       }}
                     >
@@ -58,7 +65,10 @@ export default function Cart() {
                     </Button>
                     <Button
                       variant="danger"
-                      onClick={() => dispatch(removeCart(item.name))}
+                      onClick={() => {
+                        dispatch(subtractTotal(item.price));
+                        dispatch(removeCart(item.name));
+                      }}
                     >
                       Remove Order
                     </Button>
@@ -68,6 +78,25 @@ export default function Cart() {
               <br />
             </>
           ))}
+          <br />
+          <hr />
+          <h1>Total Cost: R{total}</h1>
+          <hr />
+          <br />
+          <Button
+            variant="success"
+            onClick={() => {
+              dispatch(clearCart());
+              setShow(true);
+            }}
+          >
+            Complete All Orders
+          </Button>
+          <Button variant="danger" onClick={() => dispatch(clearCart())}>
+            Remove All Orders
+          </Button>
+          <br />
+          <br />
         </>
       ) : (
         <>
@@ -80,7 +109,9 @@ export default function Cart() {
       )}
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header style={{backgroundColor: 'black', color: 'white'}}>Purchased</Modal.Header>
+        <Modal.Header style={{ backgroundColor: "black", color: "white" }}>
+          Purchased
+        </Modal.Header>
         <Modal.Body>Item Purchased!</Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleClose}>

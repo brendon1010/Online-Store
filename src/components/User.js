@@ -10,7 +10,7 @@ export default function User() {
   const logoutButton = "danger";
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [mode, setMode] = useState("white");
+  const [count, setCount] = useState(0);
 
   function handleClick() {
     if (state.loggedIn) {
@@ -23,15 +23,14 @@ export default function User() {
 
   function handleDark() {
     let myBody = document.querySelector("body");
-    if (mode === "white") {
-      setMode('black')
+    if (count % 2 === 0) {
       myBody.style.backgroundColor = 'black';
       myBody.style.color = "white";
     }else{
-      setMode('white')
       myBody.style.backgroundColor = 'white'
       myBody.style.color = 'black'
     }
+    setCount(count + 1)
   }
 
   return (

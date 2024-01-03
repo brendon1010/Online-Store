@@ -1,6 +1,6 @@
 import { Button, Card, Container, Row, Col, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { addCart } from "./store/signupState";
+import { addCart, updateTotal } from "./store/signupState";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -105,7 +105,9 @@ export default function Store() {
                             image: item.image,
                             description: item.description,
                           })
-                        );}
+                        );
+                        dispatch(updateTotal(item.price))
+                      }
                         setShow(true);
                       }}
                       variant="primary"
