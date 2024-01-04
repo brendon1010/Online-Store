@@ -1,7 +1,13 @@
-import { Card, Button, Modal } from "react-bootstrap";
+import { Card, Button, Modal, Dropdown } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { removeCart, subtractTotal, clearCart } from "./store/signupState";
+import {
+  removeCart,
+  subtractTotal,
+  clearCart,
+  changeCart,
+} from "./store/signupState";
 import { useState } from "react";
+import Info from "./Info";
 
 export default function Cart() {
   const state = useSelector((state) => state.signup.cart);
@@ -20,6 +26,7 @@ export default function Cart() {
           <br />
           <br />
           <br />
+          <Info/>
           {state.map((item) => (
             <>
               <br />
@@ -34,6 +41,7 @@ export default function Cart() {
                 >
                   {item.name}
                 </Card.Header>
+                <br/>
                 <Card.Img
                   style={{ width: "286px" }}
                   variant="top"
@@ -47,32 +55,87 @@ export default function Cart() {
                     <Card.Text>
                       {item.description}
                       <hr />
+                      <Dropdown>
+                        <Dropdown.Toggle variant="success">
+                          {item.shipping}
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                          <Dropdown.Item
+                            onClick={() => {
+                              dispatch(
+                                changeCart({
+                                  index: item.id,
+                                  shipMethod: "Standard Shipping",
+                                })
+                              );
+                            }}
+                          >
+                            Standard Shipping
+                          </Dropdown.Item>
+                          <Dropdown.Item
+                            onClick={() => {
+                              dispatch(
+                                changeCart({
+                                  index: item.id,
+                                  shipMethod: "Express Shipping",
+                                })
+                              );
+                            }}
+                          >
+                            Express Shipping
+                          </Dropdown.Item>
+                          <Dropdown.Item
+                            onClick={() => {
+                              dispatch(
+                                changeCart({
+                                  index: item.id,
+                                  shipMethod: "Two-Day Shipping",
+                                })
+                              );
+                            }}
+                          >
+                            Two-Day Shipping
+                          </Dropdown.Item>
+                          <Dropdown.Item
+                            onClick={() => {
+                              dispatch(
+                                changeCart({
+                                  index: item.id,
+                                  shipMethod: "Overnight Shipping",
+                                })
+                              );
+                            }}
+                          >
+                            Overnight Shipping
+                          </Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
                       <br />
-                      <br />R{item.price}
+                      <h4>R{item.price}</h4>
+                      <h6>(ship fees: +R{item.shipFee})</h6>
                     </Card.Text>
                   </Card.Body>
 
-                  <Card.Footer>
-                    <Button
-                      variant="success"
-                      onClick={() => {
-                        dispatch(removeCart(item.name));
-                        dispatch(subtractTotal(item.price));
-                        setShow(true);
-                      }}
-                    >
-                      Complete Order
-                    </Button>
-                    <Button
-                      variant="danger"
-                      onClick={() => {
-                        dispatch(subtractTotal(item.price));
-                        dispatch(removeCart(item.name));
-                      }}
-                    >
-                      Remove Order
-                    </Button>
-                  </Card.Footer>
+                  <Button
+                    variant="success"
+                    onClick={() => {
+                      dispatch(removeCart(item.name));
+                      dispatch(subtractTotal(item.price));
+                      setShow(true);
+                    }}
+                    disabled={item.shipping !== 'Choose Shipment Method' ? false: true}
+                  >
+                    Complete Order
+                  </Button>
+                  <Button
+                    variant="danger"
+                    onClick={() => {
+                      dispatch(subtractTotal(item.price));
+                      dispatch(removeCart(item.name));
+                    }}
+                  >
+                    Remove Order
+                  </Button>
                 </Card.ImgOverlay>
               </Card>
               <br />

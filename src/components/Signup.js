@@ -6,7 +6,7 @@ import {
   createPassword,
   createSurname,
   createUser,
-  createUsername,
+  createName,
 } from "./store/signupState";
 import { useFormik } from "formik";
 
@@ -22,11 +22,12 @@ export default function Signup() {
       email: "",
       password: "",
       confirm: "",
+      username: "",
     },
     onSubmit: (value) => {
       dispatch(createEmail(value.email));
       dispatch(createPassword(value.password));
-      dispatch(createUsername(value.first));
+      dispatch(createName(value.first));
       dispatch(createSurname(value.last));
       dispatch(createUser());
       navigate("/");
@@ -36,6 +37,10 @@ export default function Signup() {
 
       if (!value.first) {
         errors.first = "Required";
+      }
+
+      if (!value.username) {
+        errors.username = "Required";
       }
 
       if (!value.last) {
@@ -103,6 +108,20 @@ export default function Signup() {
           />
           {formik.touched.last && formik.errors.last ? (
             <div className="myError">{formik.errors.last}</div>
+          ) : null}
+          <label htmlFor="username">UserName</label>
+          <br />
+          <input
+            className="inp"
+            id="username"
+            type="text"
+            placeholder="username"
+            value={formik.values.username}
+            onChange={formik.handleChange}
+            maxLength={15}
+          />
+          {formik.touched.username && formik.errors.username ? (
+            <div className="myError">{formik.errors.username}</div>
           ) : null}
           <br />
           <br />

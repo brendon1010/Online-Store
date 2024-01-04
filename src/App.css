@@ -17,6 +17,12 @@
   font-family: Rubik Maps;
 }
 
+.myImg{
+  margin-left: 180vh;
+  width: 40px;
+  cursor: pointer;
+}
+
 .contactMe{
   width: 10vh;
 }

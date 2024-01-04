@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Store() {
   const [show, setShow] = useState(false);
+  const [count, setCount] = useState(0)
   const dispatch = useDispatch();
   const state = useSelector((state) => state.signup)
   const navigate = useNavigate()
@@ -104,9 +105,13 @@ export default function Store() {
                             price: item.price,
                             image: item.image,
                             description: item.description,
+                            shipping: 'Choose Shipment Method',
+                            id: count,
+                            shipFee: 0,
                           })
                         );
                         dispatch(updateTotal(item.price))
+                        setCount(count + 1)
                       }
                         setShow(true);
                       }}

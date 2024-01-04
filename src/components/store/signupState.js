@@ -7,6 +7,7 @@ const signupSlice = createSlice({
     password: "",
     firstName: "",
     lastName: "",
+    username: "",
     users: [],
     loggedIn: false,
     cart: [],
@@ -19,11 +20,14 @@ const signupSlice = createSlice({
     createPassword: (state, action) => {
       state.password = action.payload;
     },
-    createUsername: (state, action) => {
+    createName: (state, action) => {
       state.firstName = action.payload;
     },
     createSurname: (state, action) => {
       state.lastName = action.payload;
+    },
+    createUsername: (state, action) => {
+      state.username = action.payload
     },
     createUser: (state) => {
       state.users.push({
@@ -54,9 +58,21 @@ const signupSlice = createSlice({
     },
     subtractTotal: (state, action) => {
       state.total -= action.payload
-    }
+    },
+    changeCart: (state, action) => {
+      state.cart[action.payload.index].shipping = action.payload.shipMethod
+      if(state.cart[action.payload.index].shipping === 'Standard Shipping'){
+        state.cart[action.payload.index].shipFee = 20
+      }else if(state.cart[action.payload.index].shipping === 'Express Shipping'){
+        state.cart[action.payload.index].shipFee = 50
+      }else if(state.cart[action.payload.index].shipping === 'Two-Day Shipping'){
+        state.cart[action.payload.index].shipFee = 70
+      }else if(state.cart[action.payload.index].shipping === 'Overnight Shipping'){
+        state.cart[action.payload.index].shipFee = 100
+      }
+    },
   },
 });
 
-export const {createEmail, createPassword, createSurname, createUsername, createUser, logIn, logOut, addCart, removeCart, updateTotal, subtractTotal, clearCart} = signupSlice.actions
+export const {createEmail, createPassword, createSurname, createName, createUser, logIn, logOut, addCart, removeCart, updateTotal, subtractTotal, clearCart, changeCart} = signupSlice.actions
 export default signupSlice.reducer
