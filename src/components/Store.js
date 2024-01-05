@@ -5,15 +5,15 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Store() {
-  const [show, setShow] = useState(false);
-  const [count, setCount] = useState(0)
-  const dispatch = useDispatch();
-  const state = useSelector((state) => state.signup)
-  const navigate = useNavigate()
+  const [show, setShow] = useState(false);  //state to show added to cart alert
+  const [count, setCount] = useState(0)  //count to give each object a unique id
+  const dispatch = useDispatch();    //dispatch to use reducers
+  const state = useSelector((state) => state.signup)   //get initital state object from redux store
+  const navigate = useNavigate()   //navigate for redirecting to login page if user isnt logged in
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => setShow(false);   //close alert
 
-  const items = [
+  const items = [   //all products to be used in store
     {
       key: 1,
       name: "item1",
@@ -69,7 +69,9 @@ export default function Store() {
       <Container>
         <Row>
           {items.map((item) => (
+            //map items
             <>
+            {/*modal to show when product is added to cart*/}
             <Modal show={show} onHide={handleClose} backdrop='static'>
                 <Modal.Header closeButton>
                   <Modal.Title>Add to Cart</Modal.Title>
@@ -82,6 +84,7 @@ export default function Store() {
                 </Modal.Footer>
               </Modal>
               <Col>
+              {/*items mapped in cards*/}
                 <Card style={{ width: "18rem" }}>
                   <Card.Img
                     style={{ width: "286px" }}
@@ -96,6 +99,7 @@ export default function Store() {
                     </Card.Text>
                     <Button
                       onClick={() => {
+                        //check if user is logged in
                         if(state.loggedIn === false){
                           navigate('/')
                         }else{

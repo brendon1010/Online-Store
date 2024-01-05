@@ -7,7 +7,7 @@
   pointer-events: none;
 }
 
-.login{
+.login{   /*change size of login section*/
   margin: 7vh 55vh;
   border: 1px solid black;
   width: 90vh;
@@ -17,49 +17,49 @@
   font-family: Rubik Maps;
 }
 
-.myImg{
+.myImg{   /*control size and location of info icon*/
   margin-left: 180vh;
   width: 40px;
   cursor: pointer;
 }
 
-.contactMe{
+.contactMe{   /*control size of contact me images*/
   width: 10vh;
 }
 
-.pPic{
+.pPic{   /*size of profile picture on navigation bar*/
   width: 6vh;
   border-radius: 50%;
 }
 
-.linkItem{
+.linkItem{    /*change words in navigation bar to look less like a link*/
   text-decoration: none;
   color: white;
 }
 
-.banner{
+.banner{    /*size of banners on home page*/
   height: 90vh;
 }
 
-.myError{
+.myError{    /*color and size of error text*/
   font-size: smaller;
   color: red;
 }
 
-.inp{
+.inp{    /*size of input element*/
   width: 55vh;
 }
 
-.foot{
+.foot{     /**/
   font-family: monospace;
   font-size: smaller;
 }
 
-.icon{
+.icon{   /*size of icons on the navogation bar*/
   width: 3vh;
 }
 
-.navBar{
+.navBar{    /*color of navigation bar*/
   background-color: #282c34;
 }
 

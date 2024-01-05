@@ -1,5 +1,13 @@
 # Online Store
 
+## installation
+
+Download the project and type 'npm install' in the terminal.
+run 'npm install react-bootstrap bootstrap' in the terminal.
+run 'npm install --save react-router-dom@latest'.
+run 'npm install @reduxjs/toolkit react-redux'.
+finally run npm start to start the app.
+
 ## Signing up and Logging in
 
 Create an account by inputting your first name, last name, username, email and password.

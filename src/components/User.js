@@ -5,14 +5,14 @@ import { logOut } from "./store/signupState";
 import { useState } from "react";
 
 export default function User() {
-  const state = useSelector((state) => state.signup);
-  const loginButton = "primary";
-  const logoutButton = "danger";
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const [count, setCount] = useState(0);
+  const state = useSelector((state) => state.signup);   //get initial states
+  const loginButton = "primary";   //button variant for login
+  const logoutButton = "danger";   //button variant for logout
+  const navigate = useNavigate();   //navigate to login page
+  const dispatch = useDispatch();   //dispatch for reducers
+  const [count, setCount] = useState(0);   //count for clicks for dark mode or light mode
 
-  function handleClick() {
+  function handleClick() {   //function for when user clicks the login or logout
     if (state.loggedIn) {
       dispatch(logOut());
       navigate("/");
@@ -21,7 +21,7 @@ export default function User() {
     }
   }
 
-  function handleDark() {
+  function handleDark() {    //function for when the user clciks the dark mode or light mode button
     let myBody = document.querySelector("body");
     if (count % 2 === 0) {
       myBody.style.backgroundColor = 'black';
@@ -39,14 +39,17 @@ export default function User() {
       <br />
       <br />
       <br />
+      {/*check if user is a guest or is logged in*/}
       <h1>Welcome {state.firstName ? state.firstName : "Guest"}</h1>
       <h4>
+        {/*dark mode button*/}
         Dark Mode
         <Button variant="secondary" onClick={handleDark}>
           On
         </Button>
       </h4>
       <br />
+      {/*login or logout button*/}
       <Button
         onClick={handleClick}
         variant={state.loggedIn ? logoutButton : loginButton}

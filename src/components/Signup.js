@@ -12,12 +12,12 @@ import {
 import { useFormik } from "formik";
 
 export default function Signup() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch();   //dispatch to use reducers
 
-  const navigate = useNavigate();
+  const navigate = useNavigate();   //navigate to navigate to login page on form submit
 
   const formik = useFormik({
-    initialValues: {
+    initialValues: {   //initial values defined
       first: "",
       last: "",
       email: "",
@@ -25,7 +25,7 @@ export default function Signup() {
       confirm: "",
       username: "",
     },
-    onSubmit: (value) => {
+    onSubmit: (value) => {   //set form values as values stored in redux store
       dispatch(createEmail(value.email));
       dispatch(createPassword(value.password));
       dispatch(createName(value.first));
@@ -34,7 +34,7 @@ export default function Signup() {
       dispatch(createUsername(value.username))
       navigate("/");
     },
-    validate: (value) => {
+    validate: (value) => {    //error handlings
       let errors = {};
 
       if (!value.first) {
@@ -76,6 +76,7 @@ export default function Signup() {
       <br />
       <br />
       <div className="login">
+        {/*signup form*/}
         <form onSubmit={formik.handleSubmit}>
           <h1>Signup</h1>
           <br />
@@ -178,6 +179,7 @@ export default function Signup() {
         </form>
         <br />
         <br />
+        {/*link text that links to login page*/}
         <p className="foot">
           <Link to="/">Already have a account? Login here</Link>
         </p>
