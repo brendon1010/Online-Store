@@ -7,6 +7,7 @@ import {
   createSurname,
   createUser,
   createName,
+  createUsername,
 } from "./store/signupState";
 import { useFormik } from "formik";
 
@@ -30,6 +31,7 @@ export default function Signup() {
       dispatch(createName(value.first));
       dispatch(createSurname(value.last));
       dispatch(createUser());
+      dispatch(createUsername(value.username))
       navigate("/");
     },
     validate: (value) => {

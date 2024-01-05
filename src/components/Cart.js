@@ -10,25 +10,28 @@ import { useState } from "react";
 import Info from "./Info";
 
 export default function Cart() {
-  const state = useSelector((state) => state.signup.cart);
-  const total = useSelector((state) => state.signup.total);
-  const dispatch = useDispatch();
-  const [show, setShow] = useState(false);
+  const state = useSelector((state) => state.signup.cart); //constant to store cart state
+  const total = useSelector((state) => state.signup.total); //constant to store total state
+  const dispatch = useDispatch(); //dispatch to apply reducers
+  const [show, setShow] = useState(false); //state to show purchase alert
 
   const handleClose = () => {
+    //close the purchase alert
     setShow(false);
   };
 
   return (
     <div>
+      {/*check if cart is empty*/}
       {state.length > 0 ? (
         <>
           <br />
           <br />
           <br />
-          <Info/>
+          <Info />
           {state.map((item) => (
             <>
+              {/*map items in cart state*/}
               <br />
               <Card style={{ backgroundColor: "grey", color: "white" }}>
                 <Card.Header
@@ -41,7 +44,7 @@ export default function Cart() {
                 >
                   {item.name}
                 </Card.Header>
-                <br/>
+                <br />
                 <Card.Img
                   style={{ width: "286px" }}
                   variant="top"
@@ -55,6 +58,7 @@ export default function Cart() {
                     <Card.Text>
                       {item.description}
                       <hr />
+                      {/*create dropdown for shipping methods*/}
                       <Dropdown>
                         <Dropdown.Toggle variant="success">
                           {item.shipping}
@@ -111,6 +115,7 @@ export default function Cart() {
                         </Dropdown.Menu>
                       </Dropdown>
                       <br />
+                      {/*show price and ship fees*/}
                       <h4>R{item.price}</h4>
                       <h6>(ship fees: +R{item.shipFee})</h6>
                     </Card.Text>
@@ -123,7 +128,10 @@ export default function Cart() {
                       dispatch(subtractTotal(item.price));
                       setShow(true);
                     }}
-                    disabled={item.shipping !== 'Choose Shipment Method' ? false: true}
+                    //button disabled unless shipping method is chosen
+                    disabled={
+                      item.shipping !== "Choose Shipment Method" ? false : true
+                    }
                   >
                     Complete Order
                   </Button>
@@ -146,15 +154,7 @@ export default function Cart() {
           <h1>Total Cost: R{total}</h1>
           <hr />
           <br />
-          <Button
-            variant="success"
-            onClick={() => {
-              dispatch(clearCart());
-              setShow(true);
-            }}
-          >
-            Complete All Orders
-          </Button>
+          {/*button to complete all items or remove all items*/}
           <Button variant="danger" onClick={() => dispatch(clearCart())}>
             Remove All Orders
           </Button>
@@ -163,6 +163,7 @@ export default function Cart() {
         </>
       ) : (
         <>
+          {/*if cart is empty display image*/}
           <img
             src="https://img.freepik.com/premium-vector/nothing-here-flat-illustration_418302-77.jpg?w=360"
             alt="empty"
@@ -171,6 +172,7 @@ export default function Cart() {
         </>
       )}
 
+      {/*purchased alert*/}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header style={{ backgroundColor: "black", color: "white" }}>
           Purchased

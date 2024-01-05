@@ -5,34 +5,39 @@ import { useFormik } from "formik";
 import { logIn } from "./store/signupState";
 
 export default function Login() {
-  const state = useSelector((state) => state.signup);
+  const state = useSelector((state) => state.signup); //constant to store all states in store
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); //dispatch for reducers
 
-  const navigate = useNavigate();
+  const navigate = useNavigate(); //navigate to switch pages on succssful login
 
   const formik = useFormik({
+    //formik to handle form
     initialValues: {
-      email: "",
+      //username and password as values for formik to update
+      username: "",
       password: "",
     },
     onSubmit: (values) => {
+      //on successful submission change loggedIn state to true in global store and navigate to home page
       dispatch(logIn());
       navigate("/home");
     },
     validate: (values) => {
+      //error handlings
       let errors = {};
 
-      if (!values.email) {
-        errors.email = "Required";
+      if (!values.username) {
+        errors.username = "Required";
       }
 
       if (!values.password) {
         errors.password = "Required";
       }
 
-      if (values.email !== state.email) {
-        errors.email = "user does not exist";
+      if (values.username !== state.username) {
+        //check if username and password match with the values stored in signup
+        errors.username = "user does not exist";
       } else if (values.password !== state.password) {
         errors.password = "Password is incorrect";
       }
@@ -46,20 +51,21 @@ export default function Login() {
       <br />
       <br />
       <div className="login">
+        {/*form created for login*/}
         <form onSubmit={formik.handleSubmit}>
           <h1>Login</h1>
           <br />
-          <label htmlFor="email">Email Address</label>
+          <label htmlFor="username">Username</label>
           <br />
           <input
-            id="email"
-            type="email"
-            placeholder="username@example.com"
-            value={formik.values.email}
+            id="username"
+            type="text"
+            placeholder="username"
+            value={formik.values.username}
             onChange={formik.handleChange}
           />
-          {formik.touched.email && formik.errors.email ? (
-            <div className="myError">{formik.errors.email}</div>
+          {formik.touched.username && formik.errors.username ? (
+            <div className="myError">{formik.errors.username}</div>
           ) : null}
           <br />
           <br />
@@ -83,6 +89,7 @@ export default function Login() {
         </form>
         <br />
         <br />
+        {/*link text to redirect to signup page*/}
         <p className="foot">
           <Link to="/signup">Don't have a account? Sign up here</Link>
         </p>
