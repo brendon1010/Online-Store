@@ -51,12 +51,11 @@ export default function Home() {
           alt="Card image"
         />
         <Card.ImgOverlay style={{ color: "white" }}>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
+          <Card.Title style={{fontFamily: 'Creepster', fontSize: '15vh', margin: '20vh'}}><span style={{color: 'red'}}>Christmas</span> <span style={{color: 'green'}}>Sale!</span></Card.Title>
+          <Card.Text style={{fontSize: '5vh'}}>
+            Get up to 40% off on selected products!
           </Card.Text>
-          <Card.Text>Last updated 3 mins ago</Card.Text>
+          <Card.Text>Unfortunately this sale has already ended</Card.Text>
         </Card.ImgOverlay>
       </Card>
       <br />

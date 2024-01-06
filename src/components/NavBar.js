@@ -3,18 +3,11 @@ import { NavLink } from "react-router-dom";
 
 export default function NavBar() {
   return (
+  <div className="queryNav">
     <Nav
       fill
       variant="tabs"
-      style={{
-        padding: "15px",
-        backgroundColor: "rgba(128, 128, 128, 0.89)",
-        color: "white",
-        cursor: "pointer",
-        position: "fixed",
-        zIndex: 1000,
-        width: "202vh",
-      }}
+      className="navBar"
     >
       {/*navigation bar with routes and images*/}
       <Nav.Item>
@@ -47,5 +40,6 @@ export default function NavBar() {
         </NavLink>
       </Nav.Item>
     </Nav>
+    </div>
   );
 }

@@ -41,6 +41,7 @@ export default function User() {
       <br />
       {/*check if user is a guest or is logged in*/}
       <h1>Welcome {state.firstName ? state.firstName : "Guest"}</h1>
+      <hr/><br/>
       <h4>
         {/*dark mode button*/}
         Dark Mode

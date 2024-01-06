@@ -61,6 +61,13 @@
 
 .navBar{    /*color of navigation bar*/
   background-color: #282c34;
+  padding: 15px;
+  background-color: rgba(128, 128, 128, 0.89);
+  color: white;
+  cursor: pointer;
+  position: fixed;
+  z-index: 1000;
+  width: 202vh;
 }
 
 .options{
@@ -70,9 +77,10 @@
   
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+@media (max-width: 768px){  /*query for if sceen is made shorter*/
+  .queryNav .navBar{
+    width: 155vh;
   }
 }
 

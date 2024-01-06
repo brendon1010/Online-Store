@@ -10,8 +10,8 @@ export default function About() {
         alt="Card image"
       />
       <Card.ImgOverlay style={{ color: "white" }}>
-        <Card.Title>Card title</Card.Title>
-        <Card.Text>
+        <Card.Title style={{fontFamily: 'Rubik Glitch', fontSize: '20vh'}}>Card title</Card.Title>
+        <Card.Text style={{fontFamily: 'Lobster', fontSize: '6vh' }}>
           This is a wider card with supporting text below as a natural lead-in
           to additional content. This content is a little bit longer.
         </Card.Text>
