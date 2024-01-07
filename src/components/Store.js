@@ -18,49 +18,49 @@ export default function Store() {
       key: 1,
       name: "item1",
       image:
-        "https://www.aaronfaber.com/wp-content/uploads/2017/03/product-placeholder-wp.jpg",
-      price: 10,
-      description: "product description",
+        "https://th.bing.com/th/id/OIG.WK9wokk6cSJHCibvWsJn?pid=ImgGn",
+      price: 125,
+      description: "Step into the adventure zone with our bold and vibrant tee! Featuring a dynamic design that captures the essence of exploration and a comfortable fit, this shirt is your ticket to style and comfort wherever your journey takes you",
     },
     {
       key: 2,
       name: "item2",
       image:
-        "https://www.aaronfaber.com/wp-content/uploads/2017/03/product-placeholder-wp.jpg",
+        "https://th.bing.com/th/id/OIG.zVshBU2WIvZtB6tDffOj?pid=ImgGn",
       price: 320,
-      description: "product description",
+      description: "Elevate your wardrobe with our chic, versatile tee. Crafted for both style and comfort, this shirt boasts a modern design that effortlessly complements any look. Embrace fashion-forward flair with this must-have essential.",
     },
     {
       key: 3,
       name: "item3",
       image:
-        "https://www.aaronfaber.com/wp-content/uploads/2017/03/product-placeholder-wp.jpg",
+        "https://th.bing.com/th/id/OIG.fZ6mhVHBcN.oye28hN8t?w=1024&h=1024&rs=1&pid=ImgDetMain",
       price: 140,
-      description: "product description",
+      description: "Unleash your inner creativity with our expressive tee. Designed for self-expression, this shirt showcases a unique blend of artistry and comfort. Make a statement and stand out from the crowd in this captivating piece.",
     },
     {
       key: 4,
       name: "item4",
       image:
-        "https://www.aaronfaber.com/wp-content/uploads/2017/03/product-placeholder-wp.jpg",
-      price: 150,
-      description: "product description",
+        "https://th.bing.com/th/id/OIG.QnBHwJ7OKCcpYz5N0JcN?pid=ImgGn",
+      price: 75,
+      description: "Top off your style with our versatile cap. Designed for comfort and flair, this sleek accessory effortlessly complements any outfit. Shield yourself from the sun in fashion-forward confidence with this must-have.",
     },
     {
       key: 5,
       name: "item5",
       image:
-        "https://www.aaronfaber.com/wp-content/uploads/2017/03/product-placeholder-wp.jpg",
-      price: 100,
-      description: "product description",
+        "https://th.bing.com/th/id/OIG.BScdukivYCUg_WLzhzyJ?w=1024&h=1024&rs=1&pid=ImgDetMain",
+      price: 420,
+      description: "Experience style and comfort in every step with our impeccably tailored trousers. Effortlessly blending sophistication and ease, these pants redefine versatility. Elevate your wardrobe with a timeless staple designed to suit any occasion with finesse.",
     },
     {
       key: 6,
       name: "item6",
       image:
-        "https://www.aaronfaber.com/wp-content/uploads/2017/03/product-placeholder-wp.jpg",
-      price: 1550,
-      description: "product description",
+        "https://th.bing.com/th/id/OIG.SAg.3xlZVmkTxtViYBA.?w=1024&h=1024&rs=1&pid=ImgDetMain",
+      price: 550,
+      description: "Embrace timeless style and comfort in our signature shirt. Meticulously crafted for sophistication, it pairs versatile design with a tailored fit. Elevate your wardrobe effortlessly with this essential piece of fashion.",
     },
   ];
 
@@ -92,10 +92,10 @@ export default function Store() {
                     src={item.image}
                   />
                   <Card.Body>
-                    <Card.Title>{item.name}</Card.Title>
+                    <Card.Title style={{fontWeight: 'bold'}}>{item.name}</Card.Title>
                     <Card.Text>
                       {item.description}
-                      <hr />R{item.price}
+                      <hr /><span style={{fontWeight: 'bold'}}>R{item.price}</span>
                     </Card.Text>
                     <Button
                       onClick={() => {

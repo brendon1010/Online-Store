@@ -10,7 +10,8 @@ export default function Home() {
       <Carousel id="home" style={{ marginTop: "10vh" }}>
         <Carousel.Item style={{ backgroundColor: "black" }}>
           <img
-            src="https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg"
+            style={{width: '110vh', height: '70vh'}}
+            src="https://th.bing.com/th/id/OIG.Q8FElngjSsrapFmIiqvZ?pid=ImgGn"
             alt="back"
           />
           <Carousel.Caption>
@@ -20,7 +21,8 @@ export default function Home() {
         </Carousel.Item>
         <Carousel.Item style={{ backgroundColor: "black" }}>
           <img
-            src="https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg"
+            style={{width: '110vh', height: '70vh'}}
+            src="https://th.bing.com/th/id/OIG.WZgoXv9CX7AmQ.Y3gFji?pid=ImgGn"
             alt="back"
           />
           <Carousel.Caption>
@@ -30,7 +32,8 @@ export default function Home() {
         </Carousel.Item>
         <Carousel.Item style={{ backgroundColor: "black" }}>
           <img
-            src="https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg"
+            style={{width: '110vh', height: '70vh'}}
+            src="https://th.bing.com/th/id/OIG.wkulLvcxeZDEAL4JHDm3?pid=ImgGn"
             alt="back"
           />
           <Carousel.Caption>
@@ -81,7 +84,7 @@ export default function Home() {
           color: "white",
         }}
       >
-        <h2>Contact Me</h2>
+        <h2 style={{fontFamily: 'salsa'}}>Contact Me</h2>
         <img
           className="contactMe"
           src="https://mailmeteor.com/logos/assets/PNG/Gmail_Logo_512px.png"
