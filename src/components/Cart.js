@@ -56,8 +56,6 @@ export default function Cart() {
                     <br />
                     <Card.Title>Special title treatment</Card.Title>
                     <Card.Text>
-                      {item.description}
-                      <hr />
                       {/*create dropdown for shipping methods*/}
                       <Dropdown>
                         <Dropdown.Toggle variant="success">

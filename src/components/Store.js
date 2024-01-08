@@ -16,7 +16,7 @@ export default function Store() {
   const items = [   //all products to be used in store
     {
       key: 1,
-      name: "item1",
+      name: "Grey T-shirt",
       image:
         "https://th.bing.com/th/id/OIG.WK9wokk6cSJHCibvWsJn?pid=ImgGn",
       price: 125,
@@ -24,7 +24,7 @@ export default function Store() {
     },
     {
       key: 2,
-      name: "item2",
+      name: "White T-shirt",
       image:
         "https://th.bing.com/th/id/OIG.zVshBU2WIvZtB6tDffOj?pid=ImgGn",
       price: 320,
@@ -32,7 +32,7 @@ export default function Store() {
     },
     {
       key: 3,
-      name: "item3",
+      name: "Brown T-shirt",
       image:
         "https://th.bing.com/th/id/OIG.fZ6mhVHBcN.oye28hN8t?w=1024&h=1024&rs=1&pid=ImgDetMain",
       price: 140,
@@ -40,7 +40,7 @@ export default function Store() {
     },
     {
       key: 4,
-      name: "item4",
+      name: "Plain Cap",
       image:
         "https://th.bing.com/th/id/OIG.QnBHwJ7OKCcpYz5N0JcN?pid=ImgGn",
       price: 75,
@@ -48,7 +48,7 @@ export default function Store() {
     },
     {
       key: 5,
-      name: "item5",
+      name: "Trousers",
       image:
         "https://th.bing.com/th/id/OIG.BScdukivYCUg_WLzhzyJ?w=1024&h=1024&rs=1&pid=ImgDetMain",
       price: 420,
@@ -56,7 +56,7 @@ export default function Store() {
     },
     {
       key: 6,
-      name: "item6",
+      name: "Shirt",
       image:
         "https://th.bing.com/th/id/OIG.SAg.3xlZVmkTxtViYBA.?w=1024&h=1024&rs=1&pid=ImgDetMain",
       price: 550,

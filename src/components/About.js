@@ -10,12 +10,12 @@ export default function About() {
         alt="Card image"
       />
       <Card.ImgOverlay style={{ color: "white" }}>
-        <Card.Title style={{fontFamily: 'Rubik Glitch', fontSize: '20vh'}}>Card title</Card.Title>
-        <Card.Text style={{fontFamily: 'Lobster', fontSize: '6vh' }}>
-          This is a wider card with supporting text below as a natural lead-in
-          to additional content. This content is a little bit longer.
+        <Card.Title style={{fontFamily: 'Rubik Glitch', fontSize: '20vh'}}>AuraWardrobe</Card.Title>
+        <Card.Text style={{fontFamily: 'Lobster', fontSize: '4vh' }}>
+          <br/><br/>
+        Welcome to AuraWardrobe! We believe that fashion is more than just clothing—it's an expression of individuality and confidence. At AuraWardrobe, we curate stylish collections that empower you to embrace your unique style while enjoying comfort and quality. Our passion for fashion drives us to offer a diverse range of clothing that speaks to every personality and occasion. Step into our world and discover the perfect blend of trendsetting designs and timeless elegance, crafted to elevate your wardrobe. Join us on this style journey as we celebrate authenticity, versatility, and the beauty of self-expression.
         </Card.Text>
-        <Card.Text>Last updated 3 mins ago</Card.Text>
+        <Card.Text>This is a fictional store<br/>All product images were created using Bing image generator</Card.Text>
       </Card.ImgOverlay>
     </Card>
   );
