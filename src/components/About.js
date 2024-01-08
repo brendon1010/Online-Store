@@ -5,7 +5,7 @@ export default function About() {
     <Card>
       {/*create banner in page to give an about section of the website*/}
       <Card.Img
-        style={{ width: "201vh" }}
+        style={{ width: "215vh" }}
         src="https://png.pngtree.com/thumb_back/fh260/background/20201028/pngtree-tropical-leaves-natural-shadow-overlay-on-green-wall-background-for-overlay-image_442112.jpg"
         alt="Card image"
       />
